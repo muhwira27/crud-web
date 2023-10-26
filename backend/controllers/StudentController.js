@@ -21,3 +21,38 @@ export const getStudentById = async (req, res) => {
     console.log(error.message);
   }
 }
+
+export const createStudent = async (req, res) => {
+  try {
+    await Student.create(req.body);
+    res.status(201).json({ msg: "Student Created" });
+  } catch (error) {
+    console.log(error.message);
+  }
+}
+
+export const updateStudent = async (req, res) => {
+  try {
+    await Student.update(req.body, {
+      where: {
+        id: req.params.id
+      }
+    });
+    res.status(200).json({ msg: "Student Updated" });
+  } catch (error) {
+    console.log(error.message);
+  }
+}
+
+export const deleteStudent = async (req, res) => {
+  try {
+    await Student.destroy({
+      where: {
+        id: req.params.id
+      }
+    });
+    res.status(200).json({ msg: "Student Deleted" });
+  } catch (error) {
+    console.log(error.message);
+  }
+}
