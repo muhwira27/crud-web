@@ -8,7 +8,7 @@ import TextField from "../TextField";
 import CloseBtn from "../../assets/icons/x.svg";
 
 // Import style
-import styles from "./UpdateStudent.module.css";
+import styles from "./UpdateStudentModal.module.css";
 
 export default function UpdateStudentModal(props) {
   const [studentId, setStudentId] = useState("");
