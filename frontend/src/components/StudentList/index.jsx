@@ -6,11 +6,16 @@ import axios from "axios";
 import edit from "../../assets/icons/edit.png";
 import trash from "../../assets/icons/trash.png";
 
+// Import component
+import UpdateStudentModal from "../UpdateStudentModal";
+
 // Import style
 import styles from "./StudentList.module.css";
 
 export default function ContactList() {
   const [students, setStudents] = useState([]);
+  const [updateId, setUpdateId] = useState(0);
+  const [openModal, setOpenModal] = useState(false);
 
   useEffect(() => {
     getStudents();
@@ -64,6 +69,10 @@ export default function ContactList() {
                 className={styles.action}
                 src={edit}
                 alt="edit"
+                onClick={() => {
+                  setUpdateId(student.id);
+                  setOpenModal(true);
+                }}
               />
               <img
                 className={styles.action}
@@ -82,6 +91,12 @@ export default function ContactList() {
   return (
     <main className={`${styles.studentList}`}>
       {renderStudentList}
+      {openModal && (
+        <UpdateStudentModal
+          id={updateId}
+          close={() => setOpenModal(false)}
+        />
+      )}
     </main>
   );
 }
