@@ -1,0 +1,27 @@
+.wrapper {
+  width: 40vw;
+  height: 8vh;
+  border-radius: 20px;
+  border: 2px solid #777777;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.wrapper input {
+  width: 100%;
+  border: none;
+  outline: none;
+  background: none;
+  padding: 18px 23px 20px 23px;
+  font-size: 16px;
+}
+
+.wrapper input::placeholder {
+  color: #b5b5b5;
+}
+
+.emptyAlert {
+  color: red;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 5px 10px;
+}
